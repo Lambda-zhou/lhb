@@ -1,0 +1,6 @@
+adata
+pandas
+matplotlib
+sqlalchemy
+pymysql
+kaggle-secrets 
