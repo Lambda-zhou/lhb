@@ -10,6 +10,13 @@ def code_draw(stock_code):
     return None
 
 
+def concept_count(result):
+    concepts_expanded = result['concept_tag'].str.split(';').explode()
+    # 统计每个概念出现的次数
+    concept_counts = concepts_expanded.value_counts().reset_index()
+    return concept_counts
+
+
 def get_merged_stock_data():
     try:
         df = adata.sentiment.hot.hot_rank_100_ths().loc[:, ['stock_code','pop_tag','concept_tag','change_pct']]
